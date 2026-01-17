@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>입시멘토 - 프로젝트 9조</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <a href="index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> 홈으로
+            </a>
+            <h1 class="page-title">입시멘토</h1>
+            <p class="page-subtitle">AI 입시 전문 컨설턴트</p>
+        </header>
+
+        <main class="main-content">
+            <div class="category-selector">
+                <button class="category-btn active" data-category="고입">
+                    <i class="fas fa-school"></i> 고입 컨설팅
+                </button>
+                <button class="category-btn" data-category="대입">
+                    <i class="fas fa-university"></i> 대입 컨설팅
+                </button>
+                <button class="category-btn" data-category="공부법">
+                    <i class="fas fa-brain"></i> 학습 방법
+                </button>
+            </div>
+
+            <div class="chat-container">
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message bot-message">
+                        <div class="message-avatar">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="message-content">
+                            <p>안녕하세요! 입시멘토입니다. 😊</p>
+                            <p>고등학교 입시(영재고, 과학고, 외고, 자사고 등)에 대해 궁금하신 점을 물어보세요!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-input-container">
+                    <textarea 
+                        id="chatInput" 
+                        class="chat-input" 
+                        placeholder="질문을 입력하세요..." 
+                        rows="2"
+                    ></textarea>
+                    <button id="sendButton" class="send-button">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="quick-questions">
+                <h3>자주 묻는 질문</h3>
+                <div class="quick-question-grid">
+                    <button class="quick-question-btn" data-question="과학고 준비는 언제부터 시작해야 하나요?">
+                        <i class="fas fa-flask"></i> 과학고 준비 시기
+                    </button>
+                    <button class="quick-question-btn" data-question="영재고와 과학고의 차이점이 뭔가요?">
+                        <i class="fas fa-balance-scale"></i> 영재고 vs 과학고
+                    </button>
+                    <button class="quick-question-btn" data-question="중학교 내신 관리는 어떻게 해야 하나요?">
+                        <i class="fas fa-chart-line"></i> 내신 관리법
+                    </button>
+                    <button class="quick-question-btn" data-question="과학고 면접은 어떻게 준비해야 하나요?">
+                        <i class="fas fa-comments"></i> 면접 준비
+                    </button>
+                </div>
+            </div>
+
+            <div class="consulting-info">
+                <h3><i class="fas fa-info-circle"></i> 입시멘토 안내</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h4>전문 상담</h4>
+                        <p>영재고, 과학고, 외고, 자사고 등 다양한 입시 정보 제공</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-user-check"></i>
+                        <h4>맞춤 조언</h4>
+                        <p>학생 개인의 상황에 맞는 구체적인 전략 제시</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <h4>24시간 상담</h4>
+                        <p>언제든지 궁금한 점을 물어보세요</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2026 프로젝트 9조</p>
+        </footer>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/consulting.js"></script>
+</body>
+</html>

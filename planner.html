@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공부 계획 세우기 - 프로젝트 9조</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <a href="index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> 홈으로
+            </a>
+            <h1 class="page-title">공부 계획 세우기</h1>
+        </header>
+
+        <main class="main-content planner-page">
+            <!-- 계획표 생성 섹션 -->
+            <div class="plan-generator-section" id="planGeneratorSection">
+                <div class="generator-header">
+                    <h2><i class="fas fa-magic"></i> 맞춤 계획표 생성</h2>
+                    <p>목표와 교재 정보를 입력하면 AI가 1달 분량의 학습 계획을 자동으로 생성해드려요!</p>
+                </div>
+
+                <div class="generator-form">
+                    <!-- Step 1: 기본 정보 -->
+                    <div class="form-step" id="step1">
+                        <h3><span class="step-number">1</span> 기본 정보</h3>
+                        <div class="form-group">
+                            <label for="schoolLevel">현재 학교</label>
+                            <select id="schoolLevel" class="form-select">
+                                <option value="">선택하세요</option>
+                                <option value="초등학교">초등학교</option>
+                                <option value="중학교">중학교</option>
+                                <option value="고등학교">고등학교</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="grade">학년</label>
+                            <select id="grade" class="form-select">
+                                <option value="">선택하세요</option>
+                                <option value="1">1학년</option>
+                                <option value="2">2학년</option>
+                                <option value="3">3학년</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="goal">목표</label>
+                            <select id="goal" class="form-select">
+                                <option value="">선택하세요</option>
+                                <option value="과학고">과학고 진학</option>
+                                <option value="영재고">영재고 진학</option>
+                                <option value="외고">외고 진학</option>
+                                <option value="자사고">자사고 진학</option>
+                                <option value="일반고">일반고 상위권</option>
+                                <option value="수시">수시 준비</option>
+                                <option value="정시">정시 준비</option>
+                                <option value="내신">내신 성적 향상</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: 교재 정보 -->
+                    <div class="form-step" id="step2">
+                        <h3><span class="step-number">2</span> 교재 정보</h3>
+                        <div class="textbooks-container" id="textbooksContainer">
+                            <div class="textbook-item" data-index="0">
+                                <div class="form-group">
+                                    <label>교재명</label>
+                                    <input type="text" class="form-input textbook-name" placeholder="예: 수학의 정석">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>전체 페이지 수</label>
+                                        <input type="number" class="form-input textbook-pages" placeholder="예: 300" min="1">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>하루 목표 분량 (페이지)</label>
+                                        <input type="number" class="form-input textbook-daily" placeholder="예: 10" min="1">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>과목</label>
+                                    <select class="form-select textbook-subject">
+                                        <option value="수학">수학</option>
+                                        <option value="과학">과학</option>
+                                        <option value="영어">영어</option>
+                                        <option value="국어">국어</option>
+                                        <option value="사회">사회</option>
+                                        <option value="기타">기타</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="add-textbook-btn" id="addTextbookBtn">
+                            <i class="fas fa-plus"></i> 교재 추가
+                        </button>
+                    </div>
+
+                    <!-- Step 3: 학습 요일 선택 -->
+                    <div class="form-step" id="step3">
+                        <h3><span class="step-number">3</span> 학습 요일 선택</h3>
+                        <p class="step-description">공부할 요일을 선택하세요</p>
+                        <div class="days-selector">
+                            <label class="day-checkbox">
+                                <input type="checkbox" value="월" checked> 월
+                            </label>
+                            <label class="day-checkbox">
+                                <input type="checkbox" value="화" checked> 화
+                            </label>
+                            <label class="day-checkbox">
+                                <input type="checkbox" value="수" checked> 수
+                            </label>
+                            <label class="day-checkbox">
+                                <input type="checkbox" value="목" checked> 목
+                            </label>
+                            <label class="day-checkbox">
+                                <input type="checkbox" value="금" checked> 금
+                            </label>
+                            <label class="day-checkbox">
+                                <input type="checkbox" value="토"> 토
+                            </label>
+                            <label class="day-checkbox">
+                                <input type="checkbox" value="일"> 일
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="button" class="generate-plan-btn" id="generatePlanBtn">
+                        <i class="fas fa-calendar-plus"></i> 계획표 생성하기
+                    </button>
+                </div>
+            </div>
+
+            <!-- 날짜 선택 -->
+            <div class="date-selector">
+                <button id="prevDay" class="date-nav-btn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <h2 id="currentDate" class="current-date">2026년 1월 17일</h2>
+                <button id="nextDay" class="date-nav-btn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <!-- 진행률 섹션 -->
+            <div class="progress-section">
+                <div class="progress-header">
+                    <span>오늘의 진행률</span>
+                    <span id="progressPercentage">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" id="progressBarFill"></div>
+                </div>
+                <div class="progress-stats">
+                    <span>완료: <strong id="completedCount">0</strong></span>
+                    <span>전체: <strong id="totalCount">0</strong></span>
+                </div>
+            </div>
+
+            <!-- 할 일 입력 -->
+            <div class="task-input-section">
+                <h3>새로운 할 일 추가</h3>
+                <div class="task-input-container">
+                    <input 
+                        type="text" 
+                        id="taskInput" 
+                        class="task-input" 
+                        placeholder="할 일을 입력하세요..."
+                        maxlength="100"
+                    >
+                    <button id="addTaskButton" class="add-task-btn">
+                        <i class="fas fa-plus"></i> 추가
+                    </button>
+                </div>
+            </div>
+
+            <!-- 할 일 목록 -->
+            <div class="task-list-section">
+                <div class="task-list-header">
+                    <h3>오늘의 할 일</h3>
+                    <div class="task-list-actions">
+                        <button id="editPlanBtn" class="edit-plan-btn">
+                            <i class="fas fa-edit"></i> 계획표 수정하기
+                        </button>
+                        <button id="clearCompletedBtn" class="clear-btn">
+                            <i class="fas fa-trash"></i> 완료된 항목 삭제
+                        </button>
+                    </div>
+                </div>
+                <ul id="taskList" class="task-list">
+                    <!-- 할 일 목록이 여기에 동적으로 추가됩니다 -->
+                </ul>
+                <div id="emptyState" class="empty-state">
+                    <i class="fas fa-clipboard-list"></i>
+                    <p>아직 등록된 할 일이 없습니다.</p>
+                    <p>위에서 계획표를 생성하거나 직접 추가해보세요!</p>
+                </div>
+            </div>
+
+            <!-- 월간 캘린더 보기 -->
+            <div class="calendar-section" id="calendarSection" style="display: none;">
+                <h3><i class="fas fa-calendar-alt"></i> 월간 학습 계획</h3>
+                <div class="calendar-grid" id="calendarGrid">
+                    <!-- 캘린더가 동적으로 생성됩니다 -->
+                </div>
+            </div>
+
+            <!-- 팁 섹션 -->
+            <div class="tips-section">
+                <h3><i class="fas fa-lightbulb"></i> 효과적인 계획 세우기 팁</h3>
+                <ul class="tips-list">
+                    <li>구체적이고 실행 가능한 목표로 작성하세요</li>
+                    <li>너무 많은 할 일보다 중요한 3-5개에 집중하세요</li>
+                    <li>휴식 시간도 계획에 포함시키세요</li>
+                    <li>완료한 항목에 체크하면서 성취감을 느껴보세요</li>
+                </ul>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2026 프로젝트 9조</p>
+        </footer>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/planner.js"></script>
+</body>
+</html>
